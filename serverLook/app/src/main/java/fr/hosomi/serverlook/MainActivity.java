@@ -4,19 +4,29 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.*;
+import android.widget.Button;
 
 
 public class MainActivity extends ActionBarActivity {
     static final private int MENU_PREFERENCES = Menu.FIRST;
+    private Button btn_tmp_baie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+// Button
+        this.btn_tmp_baie = (Button) findViewById(R.id.btn_tmp_baie);
 
+        this.btn_tmp_baie.setOnClickListener(new View.OnClickListener(){
+            @Override
+        public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, StatsTEMPActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,4 +49,6 @@ public class MainActivity extends ActionBarActivity {
         }
         return false;
     }
+
+
 }
