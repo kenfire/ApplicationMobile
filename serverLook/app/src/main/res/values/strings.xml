@@ -4,6 +4,7 @@
 
     <!--Buttons-->
     <string name="btn_tmp_baie">Statistiques de température baie</string>
+    <string name="btn_courbe_stats">Courbe de Statistiques</string>
     <!--Fin Buttons-->
 
     <string name="pref_cat_serveursql"> PARAMÈTRES DU SERVEUR BDD</string>
