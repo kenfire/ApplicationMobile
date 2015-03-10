@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">serverLook</string>
+<<<<<<< HEAD
     <string name="action_settings">Settings</string>
 
-   <!--Buttons-->
+    <!--Buttons-->
     <string name="btn_tmp_baie">Statistiques de température baie</string>
-<string name="pref_cat_serveursql"> PARAMÈTRES DU SERVEUR BDD</string>
+=======
+
+    <!-- Contenu texte des préférences -->
+    <string name="action_settings">Préférences</string>
+
+    <string name="pref_cat_serveursql"> PARAMÈTRES DU SERVEUR BDD</string>
 
     <string name="title_ipServeur"> IP Serveur SQL Express </string>
     <string name="summary_ipServeur"> Entrer l\'adresse ou le nom d\'hôte </string>
@@ -42,4 +48,10 @@
     <string name="title_CommunTEMP"> Communauté SNMP en lecture</string>
     <string name="summary_CommunTEMP">Entrer la communauté SNMP en lecture</string>
 
-    <!-- Fin des préférences --></resources>
+    <!-- Fin des préférences -->
+
+
+
+
+>>>>>>> f8a887290e62601c4f668fe989200c9707869786
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_cat_serveursql">
+        <EditTextPreference
+            android:key="PREFKEY_IPSERVEUR"
+            android:title="@string/title_ipServeur"
+            android:summary="@string/summary_ipServeur"
+            android:defaultValue="82.233.223.249"
+            />
+        <EditTextPreference
+            android:key="PREFKEY_PORTSERVEUR"
+            android:title="@string/title_portServeur"
+            android:summary="@string/summary_portServeur"
+            android:defaultValue="1433"
+            />
+        <EditTextPreference
+            android:key="PREFKEY_USERNAME"
+            android:title="@string/title_user"
+            android:summary="@string/summary_user"
+            android:defaultValue="supervision"
+            />
+        <EditTextPreference
+            android:key="PREFKEY_PASSWORD"
+            android:title="@string/title_password"
+            android:summary="@string/summary_password"
+            android:defaultValue="Password1234"
+            android:password="true"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_cat_serveursnmp">
+        <EditTextPreference
+            android:key="PREFKEY_IPSNMP"
+            android:title="@string/title_ipSNMP"
+            android:summary="@string/summary_ipSNMP"
+            android:defaultValue="82.233.223.249"
+            />
+
+        <EditTextPreference
+            android:key="PREFKEY_PORTSNMP"
+            android:title="@string/title_PortSNMP"
+            android:summary="@string/summary_PortSNMP"
+            android:defaultValue="161"
+            />
+        <EditTextPreference
+            android:key="PREFKEY_COMSNMP"
+            android:title="@string/title_CommunSNMP"
+            android:summary="@string/summary_CommunSNMP"
+            android:defaultValue="DataCenterVDR"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_cat_serveurTEMP">
+        <EditTextPreference
+            android:key="PREFKEY_IPTEMP"
+            android:title="@string/title_ipTEMP"
+            android:summary="@string/summary_ipTEMP"
+            android:defaultValue="82.233.223.249"
+            />
+
+        <EditTextPreference
+            android:key="PREFKEY_PORTTEMP"
+            android:title="@string/title_PortTEMP"
+            android:summary="@string/summary_PortTEMP"
+            android:defaultValue="1610"
+            />
+        <EditTextPreference
+            android:key="PREFKEY_COMTEMP"
+            android:title="@string/title_CommunTEMP"
+            android:summary="@string/summary_CommunTEMP"
+            android:defaultValue="DataCenterVDR"
+            />
+
+    </PreferenceCategory>
+</PreferenceScreen>
