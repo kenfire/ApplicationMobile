@@ -1,33 +1,19 @@
 package fr.hosomi.serverlook;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 /**
- * Created by kenzo on 10/03/2015.
+ * Created by Adrien on 10/03/2015.
  */
-public class StatsTEMPActivity extends ActionBarActivity {
-    static final private int MENU_PREFERENCES = Menu.FIRST;
-    private Button btn_courbe_stats;
+public class PlotTEMPActivity extends ActionBarActivity{
 
+    static final private int MENU_PREFERENCES = Menu.FIRST;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stats_temp);
-
-        this.btn_courbe_stats = (Button) findViewById(R.id.btn_courbe_stats);
-
-        this.btn_courbe_stats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(StatsTEMPActivity.this, PlotTEMPActivity.class);
-                startActivity(intent);
-            }
-        });
+        setContentView(R.layout.activity_plot_temp_activity);
     }
 
 
@@ -54,3 +40,5 @@ public class StatsTEMPActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
+
