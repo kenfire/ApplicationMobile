@@ -2,6 +2,8 @@ package fr.hosomi.serverlook;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +12,21 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
     static final private int MENU_PREFERENCES = Menu.FIRST;
+    static final private int CODE_REQUETE_PREFERENCES = 1;
+
+    private String ipSql = null;
+    private String portSql = null;
+    private String userSql = null;
+    private String passSql = null;
+
+    private String ipSnmp = null;
+    private String portSnmp = null;
+    private String comSnmp = null;
+
+    private String ipTemp = null;
+    private String portTemp = null;
+    private String comTemp = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +50,36 @@ public class MainActivity extends ActionBarActivity {
             case (MENU_PREFERENCES): {
                 Class c = SetPreferencesFragmentActivity.class;
                 Intent i = new Intent(this, c);
-                startActivityForResult(i, 1);
+                startActivityForResult(i, CODE_REQUETE_PREFERENCES);
                 return true;
             }
         }
         return false;
+    }
+
+    public void onActivityResult(int requestCode, int resultCode,Intent data)
+    {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == CODE_REQUETE_PREFERENCES)
+
+            this.updateAttributsFromPreferences();
+    }
+
+    private void updateAttributsFromPreferences() {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        this.ipSql = prefs.getString( PreferencesFragments.PREFKEY_IPSERVEUR, "83.233.223.249");
+        this.portSql =  prefs.getString(PreferencesFragments.PREFKEY_PORTSERVEUR, "1433");
+        this.userSql = prefs.getString( PreferencesFragments.PREFKEY_USERNAME, "supervision");
+        this.passSql =  prefs.getString(PreferencesFragments.PREFKEY_PASSWORD, "Password1234");
+
+        this.ipSnmp =  prefs.getString(PreferencesFragments.PREFKEY_IPSNMP, "82.233.223.249");
+        this.portSnmp =  prefs.getString(PreferencesFragments.PREFKEY_PORTSNMP, "161");
+        this.comSnmp =  prefs.getString(PreferencesFragments.PREFKEY_COMSNMP, "DataCenterVDR");
+
+        this.ipTemp =  prefs.getString(PreferencesFragments.PREFKEY_IPTEMP, "82.233.223.249");
+        this.portTemp =  prefs.getString(PreferencesFragments.PREFKEY_PORTTEMP, "1610");
+        this.comTemp =  prefs.getString(PreferencesFragments.PREFKEY_COMTEMP, "DataCenterVDR");
     }
 }
