@@ -12,7 +12,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
     static final private int MENU_PREFERENCES = Menu.FIRST;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_stats_temp);
     }
 
 

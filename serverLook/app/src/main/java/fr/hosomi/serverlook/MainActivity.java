@@ -19,9 +19,9 @@ public class MainActivity extends ActionBarActivity {
 // Button
         this.btn_tmp_baie = (Button) findViewById(R.id.btn_tmp_baie);
 
-        this.btn_tmp_baie.setOnClickListener(new View.OnClickListener(){
+        this.btn_tmp_baie.setOnClickListener(new View.OnClickListener() {
             @Override
-        public void onClick(View view){
+            public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, StatsTEMPActivity.class);
                 startActivity(intent);
             }
@@ -49,6 +49,4 @@ public class MainActivity extends ActionBarActivity {
         }
         return false;
     }
-
-
 }
