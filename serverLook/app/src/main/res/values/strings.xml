@@ -1,49 +1,49 @@
 <resources>
     <string name="app_name">serverLook</string>
-    <string name="action_settings">Préférences</string>
+    <string name="action_settings">Settings</string>
 
     <!--Buttons-->
-    <string name="btn_tmp_baie">Statistiques de température baie</string>
-    <string name="btn_courbe_stats">Courbe de Statistiques</string>
+    <string name="btn_tmp_baie">Bay temperature statistics</string>
+    <string name="btn_courbe_stats">Statistics curve</string>
     <!--Fin Buttons-->
 
-    <string name="pref_cat_serveursql"> PARAMÈTRES DU SERVEUR BDD</string>
+    <string name="pref_cat_serveursql"> SERVER SETTINGS</string>
 
-    <string name="title_ipServeur"> IP Serveur SQL Express </string>
-    <string name="summary_ipServeur"> Entrer l\'adresse ou le nom d\'hôte </string>
+    <string name="title_ipServeur"> Server Express SQL IP </string>
+    <string name="summary_ipServeur"> Enter the adress or the host name </string>
 
-    <string name="title_portServeur"> Port Serveur SQL Express </string>
-    <string name="summary_portServeur"> Entrer le port d\'écoute du serveur</string>
+    <string name="title_portServeur"> Server Express SQL Port </string>
+    <string name="summary_portServeur"> Enter the listening port of the server </string>
 
-    <string name="title_user"> Nom d\'utilisateur </string>
-    <string name="summary_user"> Entrer le nom du compte autorisé </string>
+    <string name="title_user"> Username </string>
+    <string name="summary_user"> Enter the name of the authorized account </string>
 
-    <string name="title_password"> Mot de passe </string>
-    <string name="summary_password"> Entrer le mot de passe de connexion </string>
-
-
-    <string name="pref_cat_serveursnmp"> PARAMÈTRES DU SERVEUR SNMP </string>
-
-    <string name="title_ipSNMP"> IP Agent SNMP v1</string>
-    <string name="summary_ipSNMP">Entrer l\'adresse ou le nom d\'hôte </string>
-
-    <string name="title_PortSNMP"> Port Agent SNMP v1</string>
-    <string name="summary_PortSNMP">Entrer le port d\'écoute du serveur </string>
-
-    <string name="title_CommunSNMP"> Communauté SNMP en lecture</string>
-    <string name="summary_CommunSNMP">Entrer la communauté SNMP en lecture</string>
+    <string name="title_password"> Password </string>
+    <string name="summary_password"> Enter the connection password </string>
 
 
-    <string name="pref_cat_serveurTEMP"> PARAMÈTRES DE LA SONDE DE TEMPÉRATURE  SNMP </string>
+    <string name="pref_cat_serveursnmp"> SNMP SERVER SETTINGS </string>
 
-    <string name="title_ipTEMP"> IP Agent SNMP v1</string>
-    <string name="summary_ipTEMP">Entrer l\'adresse ou le nom d\'hôte </string>
+    <string name="title_ipSNMP"> Agent SNMP v1 IP </string>
+    <string name="summary_ipSNMP">Enter  the adress or the host name </string>
 
-    <string name="title_PortTEMP"> Port Agent SNMP v1</string>
-    <string name="summary_PortTEMP">Entrer le port d\'écoute du serveur </string>
+    <string name="title_PortSNMP"> Agent SNMP v1 Port </string>
+    <string name="summary_PortSNMP"> Enter the listening port of the server </string>
 
-    <string name="title_CommunTEMP"> Communauté SNMP en lecture</string>
-    <string name="summary_CommunTEMP">Entrer la communauté SNMP en lecture</string>
+    <string name="title_CommunSNMP"> SNMP read community</string>
+    <string name="summary_CommunSNMP">Enter the reading community </string>
+
+
+    <string name="pref_cat_serveurTEMP"> SNMP TEMPERATURE SENSOR SETTINGS </string>
+
+    <string name="title_ipTEMP"> Agent SNMP v1 IP</string>
+    <string name="summary_ipTEMP">Enter  the adress or the host name </string>
+
+    <string name="title_PortTEMP">Agent SNMP v1 Port </string>
+    <string name="summary_PortTEMP">Enter the listening port of the server </string>
+
+    <string name="title_CommunTEMP"> SNMP read community </string>
+    <string name="summary_CommunTEMP">Enter the reading community</string>
 
     <!-- Fin des préférences -->
 </resources>
