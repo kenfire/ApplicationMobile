@@ -1,19 +1,26 @@
 package fr.hosomi.serverlook;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.Button;
+
+import com.adventnet.snmp.beans.SnmpServer;
+import com.adventnet.snmp.beans.SnmpTarget;
 
 
 public class MainActivity extends ActionBarActivity {
     static final private int MENU_PREFERENCES = Menu.FIRST;
     static final private int CODE_REQUETE_PREFERENCES = 1;
     private Button btn_tmp_baie;
+    private Button btn_temp;
 
     private String ipSql = null;
     private String portSql = null;
@@ -28,13 +35,29 @@ public class MainActivity extends ActionBarActivity {
     private String portTemp = null;
     private String comTemp = null;
 
+    private AsyncTask<String, Void, String> TaskSonde;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.updateAttributsFromPreferences();
 // Button
         this.btn_tmp_baie = (Button) findViewById(R.id.btn_tmp_baie);
+        this.btn_temp = (Button) findViewById(R.id.btn_temp);
+
+        this.btn_temp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TaskSonde = new SnmpGetTaskSonde();
+                TaskSonde.execute("oid");
+            }
+        });
 
         this.btn_tmp_baie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,4 +115,42 @@ public class MainActivity extends ActionBarActivity {
         this.portTemp =  prefs.getString(PreferencesFragments.PREFKEY_PORTTEMP, "1610");
         this.comTemp =  prefs.getString(PreferencesFragments.PREFKEY_COMTEMP, "DataCenterVDR");
     }
+
+    private class SnmpGetTaskSonde extends AsyncTask<String, Void, String> {
+        public boolean erreurFlag = false;
+        public SnmpTarget target= new SnmpTarget();
+        public String temp;
+        private ProgressDialog dialog;
+
+        public SnmpGetTaskSonde(){
+            dialog = new ProgressDialog(MainActivity.this);
+        }
+
+@Override
+        public void onPreExecute(){
+            dialog.setMessage("Chargement de la tempèrature");
+            dialog.show();
+        }
+@Override
+        public String doInBackground(String... arg){
+
+            target.setTargetHost(ipTemp);
+            target.setTargetPort(Integer.parseInt(portTemp));
+            target.setCommunity(comTemp);
+            target.setSnmpVersion(SnmpServer.VERSION1);
+
+            target.setObjectID(".1.3.6.1.4.1.21796.4.1.3.1.4.1");
+
+            temp = target.snmpGet();
+
+            return temp;
+        }
+@Override
+        public void onPostExecute(String temp){
+            dialog.dismiss();
+            Log.d("%s", temp);
+        }
+
+    }
+
 }
