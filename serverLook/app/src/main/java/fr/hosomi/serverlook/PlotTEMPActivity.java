@@ -11,9 +11,6 @@ import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeries;
 
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.os.Bundle;
 
 import java.util.Arrays;
 
