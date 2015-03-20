@@ -35,8 +35,9 @@ public class StatsTEMPActivity extends ActionBarActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.btnListe = (Button) findViewById(R.id.btn_list);
         setContentView(R.layout.activity_stats_temp);
+        this.btnListe = (Button) findViewById(R.id.btn_list);
+
         try {
             clientBDD = new ClientSQLmetier(this.ip, this.port, "Supervision", this.username, this.password, 5);
         } catch (Exception e) {
@@ -59,42 +60,42 @@ public class StatsTEMPActivity extends ActionBarActivity {
             }
         });
 
-//        this.btnListe.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                final Thread thread = new Thread() {
-//                    int state = 0;
-//
-//                    @Override
-//                    public void run() {
-//                        try {
-//                            arrayAdapt.clear();
-//                            ResultSet result = clientBDD.getTableTEMP();
-//                            while (result.next()) {
-//                                String sdate = result.getString("");
-//                                String temp = result.getString("");
-//                                String nomBaie = result.getString("");
-//                                arrayAdapt.add(new TEMP(sdate, temp, nomBaie));
-//                            }
-//                            result.close();
-//                            if (arrayAdapt.isEmpty()) {
-//                                arrayAdapt.add(new TEMP("", "Vide", ""));
-//                            }
-//                            runOnUiThread(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    arrayAdapt.notifyDataSetChanged();
-//                                }
-//                            });
-//
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                };
-//                thread.start();
-//            }
-//        });
+        this.btnListe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Thread thread = new Thread() {
+                    int state = 0;
+
+                    @Override
+                    public void run() {
+                        try {
+                            arrayAdapt.clear();
+                            ResultSet result = clientBDD.getTableTEMP();
+                            while (result.next()) {
+                                String sdate = result.getString("");
+                                String temp = result.getString("");
+                                String nomBaie = result.getString("");
+                                arrayAdapt.add(new TEMP(sdate, temp, nomBaie));
+                            }
+                            result.close();
+                            if (arrayAdapt.isEmpty()) {
+                                arrayAdapt.add(new TEMP("", "Vide", ""));
+                            }
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    arrayAdapt.notifyDataSetChanged();
+                                }
+                            });
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+                thread.start();
+            }
+        });
 
     }
 
