@@ -29,7 +29,7 @@ public class ClientSQLmetier {
         this.setUserBDD(user);
         this.setMdpBDD(mdp);
         String to = String.valueOf(timeout);
-        setConnexionStringBDD("jdbc:jtds:sqlserver://"+getServeurBDD().toString()+":"+port.toString()+"/"+bdd+";encrypt=false;instance=SQLEXPRESS;loginTimeout="+to+";socketTimeout="+to+";");
+        setConnexionStringBDD("jdbc:jtds:sqlserver://"+getServeurBDD().toString()+":"+getPortBDD().toString()+"/"+bdd+";encrypt=false;instance=SQLEXPRESS;loginTimeout="+to+";socketTimeout="+to+";");
         Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
         DriverManager.setLoginTimeout(timeout);
     }
@@ -65,7 +65,7 @@ public class ClientSQLmetier {
     }
 
     public String getServeurBDD() {
-        return serveurBDD;
+        return this.serveurBDD;
     }
 
     public void setServeurBDD(String serveurBDD) {

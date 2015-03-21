@@ -1,5 +1,7 @@
 package fr.hosomi.serverlook;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -59,6 +61,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+        final ProgressDialog wait = new ProgressDialog(this);
 
         this.btnListe.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,11 +88,17 @@ public class StatsTEMPActivity extends ActionBarActivity {
                                 @Override
                                 public void run() {
                                     arrayAdapt.notifyDataSetChanged();
+                                    wait.dismiss();
                                 }
                             });
-
+                            AlertDialog.Builder alertB = new AlertDialog.Builder(StatsTEMPActivity.this);
+                            alertB.setTitle("Changement en cours");
+                            alertB.show();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            AlertDialog.Builder alertB = new AlertDialog.Builder(StatsTEMPActivity.this);
+                            alertB.setTitle("Changement échoué !");
+                            wait.dismiss();
                         }
                     }
                 };
