@@ -41,7 +41,8 @@ public class StatsTEMPActivity extends ActionBarActivity {
         this.btnListe = (Button) findViewById(R.id.btn_list);
 
         try {
-            clientBDD = new ClientSQLmetier(this.ip, this.port, "Supervision", this.username, this.password, 5);
+            //this.clientBDD = new ClientSQLmetier(this.ip, this.port, "Supervision", this.username, this.password, 5);
+            this.clientBDD = new ClientSQLmetier("82.233.233.249", "1433", "Supervision", "1433", "Password1234", 5);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -72,17 +73,17 @@ public class StatsTEMPActivity extends ActionBarActivity {
                     @Override
                     public void run() {
                         try {
-                            arrayAdapt.clear();
+                            arrayTemp.clear();
                             ResultSet result = clientBDD.getTableTEMP();
                             while (result.next()) {
-                                String sdate = result.getString("");
-                                String temp = result.getString("");
-                                String nomBaie = result.getString("");
-                                arrayAdapt.add(new TEMP(sdate, temp, nomBaie));
+                                String sdate = result.getString("date");
+                                String temp = result.getString("temp");
+                                String nomBaie = result.getString("MachineName");
+                                arrayTemp.add(new TEMP(sdate, temp, nomBaie));
                             }
                             result.close();
-                            if (arrayAdapt.isEmpty()) {
-                                arrayAdapt.add(new TEMP("", "Vide", ""));
+                            if (arrayTemp.isEmpty()) {
+                                arrayTemp.add(new TEMP("", "Vide", ""));
                             }
                             runOnUiThread(new Runnable() {
                                 @Override
@@ -102,6 +103,8 @@ public class StatsTEMPActivity extends ActionBarActivity {
                         }
                     }
                 };
+                wait.setMessage(getResources().getString(R.string.btn_list));
+                wait.show();
                 thread.start();
             }
         });

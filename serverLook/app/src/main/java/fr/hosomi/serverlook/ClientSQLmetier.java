@@ -36,8 +36,9 @@ public class ClientSQLmetier {
 
     public ResultSet getTableTEMP() throws SQLException
     {
-        if( conn == null )
+        if( conn == null ){
             conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
+        }
         Log.i(TAG, "open BDD");
         Statement stmt = conn.createStatement();
         ResultSet result = stmt.executeQuery("select * from Temperatures");

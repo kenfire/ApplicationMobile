@@ -3,11 +3,13 @@ package fr.hosomi.serverlook;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.io.Serializable;
+
 /**
  * Created by kenzo on 10/03/2015.
  */
-public class TEMP {
-    static final long serialVersionUID = 0;
+public class TEMP implements Serializable {
+    static final long serialVersionUID = 123456789L;
     public String sdate, temp, nomBaie;
     static final Parcelable.Creator<TEMP> CREATOR = null;
 
@@ -19,7 +21,7 @@ public class TEMP {
     }
 
     public String toString(){
-        return "";
+        return  this.sdate  + " " + this.temp + " " + this.nomBaie;
     }
 
     public int describeContents(){
