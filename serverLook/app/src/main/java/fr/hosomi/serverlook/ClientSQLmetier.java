@@ -25,11 +25,12 @@ public class ClientSQLmetier {
     public ClientSQLmetier(String serveur, String port, String bdd, String user, String mdp, int timeout) throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException
     {
         this.setServeurBDD(serveur);
+        this.setPortBDD(port);
         this.setNomBDD(bdd);
         this.setUserBDD(user);
         this.setMdpBDD(mdp);
         String to = String.valueOf(timeout);
-        setConnexionStringBDD("jdbc:jtds:sqlserver://"+getServeurBDD().toString()+":"+getPortBDD().toString()+"/"+bdd+";encrypt=false;instance=SQLEXPRESS;loginTimeout="+to+";socketTimeout="+to+";");
+        this.setConnexionStringBDD("jdbc:jtds:sqlserver://"+getServeurBDD().toString()+":"+getPortBDD().toString()+"/"+bdd+";encrypt=false;instance=SQLEXPRESS;loginTimeout="+to+";socketTimeout="+to+";");
         Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
         DriverManager.setLoginTimeout(timeout);
     }

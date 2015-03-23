@@ -42,7 +42,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
 
         try {
             //this.clientBDD = new ClientSQLmetier(this.ip, this.port, "Supervision", this.username, this.password, 5);
-            this.clientBDD = new ClientSQLmetier("82.233.233.249", "1433", "Supervision", "1433", "Password1234", 5);
+            this.clientBDD = new ClientSQLmetier("82.233.233.249", "1433", "Supervision", "supervision,", "Password1234", 50);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,7 +56,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
         this.btn_courbe_stats = (Button) findViewById(R.id.btn_courbe_stats);
 
         this.btn_courbe_stats.setOnClickListener(new View.OnClickListener() {
-           @Override
+            @Override
             public void onClick(View view) {
                 Intent intent = new Intent(StatsTEMPActivity.this, PlotTEMPActivity.class);
                 startActivity(intent);
@@ -68,8 +68,6 @@ public class StatsTEMPActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 final Thread thread = new Thread() {
-                    int state = 0;
-
                     @Override
                     public void run() {
                         try {
@@ -83,7 +81,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
                             }
                             result.close();
                             if (arrayTemp.isEmpty()) {
-                                arrayTemp.add(new TEMP("", "Vide", ""));
+                                arrayTemp.add(new TEMP("", "", "Vide"));
                             }
                             runOnUiThread(new Runnable() {
                                 @Override
@@ -136,8 +134,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode,
-                                 Intent data) {
+    public void onActivityResult(int requestCode, int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CODE_REQUETE_PREFERENCES)
             this.updateAttributsFromPreferences();
@@ -150,6 +147,4 @@ public class StatsTEMPActivity extends ActionBarActivity {
         username = prefs.getString(PreferencesFragments.PREFKEY_USERNAME, "supervision");
         password = prefs.getString(PreferencesFragments.PREFKEY_PASSWORD, "Password1234");
     }
-
-
 }
