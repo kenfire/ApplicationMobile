@@ -41,7 +41,7 @@ public class ArrayUsageTEMPAdapter extends ArrayAdapter<TEMP> {
                 tv_sdate.setText(fcourant.sdate);
             }
             if (tv_temp != null){
-                tv_temp.setText(fcourant.temp);
+                tv_temp.setText(fcourant.temp+"°C");
             }
             if (tv_nomBaie != null){
                 tv_nomBaie.setText(fcourant.nomBaie);
