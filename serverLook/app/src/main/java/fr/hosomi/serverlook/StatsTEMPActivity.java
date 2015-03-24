@@ -38,7 +38,6 @@ public class StatsTEMPActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats_temp);
-        this.btnListe = (Button) findViewById(R.id.btn_list);
 
         try {
             //this.clientBDD = new ClientSQLmetier(this.ip, this.port, "Supervision", this.username, this.password, 5);
@@ -55,57 +54,62 @@ public class StatsTEMPActivity extends ActionBarActivity {
 
         this.btn_courbe_stats = (Button) findViewById(R.id.btn_courbe_stats);
 
+        /*
+        * Courbe de statistic
+         */
         this.btn_courbe_stats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(StatsTEMPActivity.this, PlotTEMPActivity.class);
+                //envois de la liste de température
+                intent.putExtra("arrayTemp",arrayTemp);
                 startActivity(intent);
             }
         });
         final ProgressDialog wait = new ProgressDialog(this);
 
-        this.btnListe.setOnClickListener(new View.OnClickListener() {
+
+        /*
+        *   Liste des températures
+         */
+        final Thread thread = new Thread() {
             @Override
-            public void onClick(View v) {
-                final Thread thread = new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            arrayTemp.clear();
-                            ResultSet result = clientBDD.getTableTEMP(10);
-                            while (result.next()) {
-                                String sdate = result.getString("date");
-                                String temp = result.getString("temp");
-                                String nomBaie = result.getString("MachineName");
-                                arrayTemp.add(new TEMP(sdate, temp, nomBaie));
-                            }
-                            result.close();
-                            if (arrayTemp.isEmpty()) {
-                                arrayTemp.add(new TEMP("", "", "Vide"));
-                            }
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    arrayAdapt.notifyDataSetChanged();
-                                    wait.dismiss();
-                                }
-                            });
-                            AlertDialog.Builder alertB = new AlertDialog.Builder(StatsTEMPActivity.this);
-                            alertB.setTitle("Changement en cours");
-                            alertB.show();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            AlertDialog.Builder alertB = new AlertDialog.Builder(StatsTEMPActivity.this);
-                            alertB.setTitle("Changement échoué !");
+            public void run() {
+                try {
+                    arrayTemp.clear();
+                    ResultSet result = clientBDD.getTableTEMP(10);
+                    while (result.next()) {
+                        String sdate = result.getString("date");
+                        String temp = result.getString("temp");
+                        String nomBaie = result.getString("MachineName");
+                        arrayTemp.add(new TEMP(sdate, temp, nomBaie));
+                    }
+                    result.close();
+                    if (arrayTemp.isEmpty()) {
+                        arrayTemp.add(new TEMP("", "", "Vide"));
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            arrayAdapt.notifyDataSetChanged();
                             wait.dismiss();
                         }
-                    }
-                };
-                wait.setMessage(getResources().getString(R.string.btn_list));
-                wait.show();
-                thread.start();
+                    });
+                    AlertDialog.Builder alertB = new AlertDialog.Builder(StatsTEMPActivity.this);
+                    alertB.setTitle("Changement en cours");
+                    alertB.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    AlertDialog.Builder alertB = new AlertDialog.Builder(StatsTEMPActivity.this);
+                    alertB.setTitle("Changement échoué !");
+                    wait.dismiss();
+                }
             }
-        });
+        };
+        wait.setMessage(getResources().getString(R.string.btn_list));
+        wait.show();
+        thread.start();
+
 
     }
 
@@ -134,7 +138,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode,Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CODE_REQUETE_PREFERENCES)
             this.updateAttributsFromPreferences();
