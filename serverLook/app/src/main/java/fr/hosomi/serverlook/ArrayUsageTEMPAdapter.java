@@ -36,7 +36,7 @@ public class ArrayUsageTEMPAdapter extends ArrayAdapter<TEMP> {
             TextView tv_sdate = (TextView) v.findViewById(R.id.sdate);
             TextView tv_temp = (TextView) v.findViewById(R.id.temp);
             TextView tv_nomBaie = (TextView) v.findViewById(R.id.nomBaie);
-
+            ImageView icone = (ImageView) v.findViewById(R.id.thermo);
             if (tv_sdate != null){
                 tv_sdate.setText(fcourant.sdate);
             }
@@ -45,6 +45,9 @@ public class ArrayUsageTEMPAdapter extends ArrayAdapter<TEMP> {
             }
             if (tv_nomBaie != null){
                 tv_nomBaie.setText(fcourant.nomBaie);
+            }
+            if (icone != null){
+                icone.setImageResource(R.drawable.thermo);
             }
         }
         return v;
