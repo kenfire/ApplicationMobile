@@ -35,10 +35,13 @@ public class PlotTEMPActivity extends ActionBarActivity{
         this.data = this.intent.getParcelableArrayListExtra(StatsTEMPActivity.KEY_ARRAY_TEMP);
 
         temperature_plot = (XYPlot) findViewById(R.id.temperature_plot);
-        temperature_plot.setRangeBoundaries(0, 40, BoundaryMode.FIXED);
         Number[] time = new Number[data.size()];
         Number[] temperature = new Number[data.size()];
         TEMP tmp;
+        Double lowestTemp = 0.;
+        Double highestTemp = 0.;
+        String startDate = "";
+        String endDate = "";
 
         for (int i=0; i<data.size();i++) {
 
@@ -46,7 +49,27 @@ public class PlotTEMPActivity extends ActionBarActivity{
             time[i]=(double) ((double) i/ (double) data.size())*100.0;
             temperature[i]=Double.parseDouble(tmp.temp);
 
+            if (i==0) {
+                lowestTemp = Double.parseDouble(tmp.temp);
+                highestTemp = Double.parseDouble(tmp.temp);
+                startDate = tmp.sdate;
+            }
+            else {
+                if (Double.parseDouble(tmp.temp) < lowestTemp){
+                    lowestTemp = Double.parseDouble(tmp.temp);
+                }
+                if (Double.parseDouble(tmp.temp) > highestTemp) {
+                    highestTemp = Double.parseDouble(tmp.temp);
+                }
+                if (i+1 == data.size()){
+                    endDate = tmp.sdate;
+                }
+            }
+
         }
+       temperature_plot.setTitle("Températures du " + startDate + " au " + endDate);
+
+        temperature_plot.setRangeBoundaries(lowestTemp-5, highestTemp+5, BoundaryMode.FIXED);
 
         XYSeries data = new SimpleXYSeries(
                 Arrays.asList(time),
