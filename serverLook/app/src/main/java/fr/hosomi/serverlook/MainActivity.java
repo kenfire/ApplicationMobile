@@ -70,7 +70,7 @@ public class MainActivity extends ActionBarActivity {
         this.btn_tmp_baie = (Button) findViewById(R.id.btn_tmp_baie);
         this.btn_temp = (Button) findViewById(R.id.btn_temp);
         this.btn_processor = (Button) findViewById(R.id.btn_processor);
-        this.btn_disk = (Button) findViewById(R.id.btn_processor);
+        this.btn_disk = (Button) findViewById(R.id.btn_disk);
 
         this.btn_temp.setOnClickListener(new View.OnClickListener() {
             @Override
