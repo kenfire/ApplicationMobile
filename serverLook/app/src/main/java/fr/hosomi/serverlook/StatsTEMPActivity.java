@@ -34,10 +34,13 @@ public class StatsTEMPActivity extends ActionBarActivity {
     private String port;
     private String username;
     private String password;
+    public final static String KEY_ARRAY_TEMP = "arrayTemp";
+    final ArrayList<TEMP> arrayTemp = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats_temp);
+
 
         try {
             //this.clientBDD = new ClientSQLmetier(this.ip, this.port, "Supervision", this.username, this.password, 5);
@@ -46,7 +49,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
             e.printStackTrace();
         }
         // Liste température
-        final ArrayList<TEMP> arrayTemp = new ArrayList<>();
+      //  final ArrayList<TEMP> arrayTemp = new ArrayList<>();
         this.listeView = (ListView) this.findViewById(R.id.listTemp);
         final ArrayAdapter<TEMP> arrayAdapt;
         arrayAdapt = new ArrayUsageTEMPAdapter(this, 0, arrayTemp);
@@ -62,7 +65,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(StatsTEMPActivity.this, PlotTEMPActivity.class);
                 //envois de la liste de température
-                intent.putExtra("arrayTemp",arrayTemp);
+                intent.putExtra(KEY_ARRAY_TEMP,arrayTemp);
                 startActivity(intent);
             }
         });
