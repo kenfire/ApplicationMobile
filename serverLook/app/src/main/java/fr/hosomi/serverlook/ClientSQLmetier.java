@@ -53,7 +53,7 @@ public class ClientSQLmetier {
         }
         Log.i(TAG, "open BDD");
         Statement stmt = conn.createStatement();
-        ResultSet result = stmt.executeQuery("select top "+top+" * from Temperatures order by date");
+        ResultSet result = stmt.executeQuery("select top "+top+" * from Temperatures order by date desc");
         return result;
     }
 
