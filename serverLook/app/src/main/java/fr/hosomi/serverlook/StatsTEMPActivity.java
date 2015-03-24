@@ -42,7 +42,7 @@ public class StatsTEMPActivity extends ActionBarActivity {
 
         try {
             //this.clientBDD = new ClientSQLmetier(this.ip, this.port, "Supervision", this.username, this.password, 5);
-            this.clientBDD = new ClientSQLmetier("82.233.233.249", "1433", "Supervision", "supervision,", "Password1234", 50);
+            this.clientBDD = new ClientSQLmetier("82.233.233.249", "1433", "Supervision", "supervision", "Password1234", 50);
         } catch (Exception e) {
             e.printStackTrace();
         }
