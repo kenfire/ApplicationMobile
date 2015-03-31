@@ -4,6 +4,8 @@
 
     <!--Buttons-->
     <string name="btn_tmp_baie">Bay temperature statistics</string>
+    <string name="btn_usage_proc">Processor usage statistics</string>
+    <string name="btn_usage_hdd">HDD usage statistics</string>
     <string name="btn_courbe_stats">Statistics curve</string>
     <string name="btn_list">Loading the temperature list</string>
     <!--Fin Buttons-->

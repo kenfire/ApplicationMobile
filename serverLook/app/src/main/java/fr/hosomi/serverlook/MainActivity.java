@@ -21,6 +21,8 @@ public class MainActivity extends ActionBarActivity {
     static final private int MENU_PREFERENCES = Menu.FIRST;
     static final private int CODE_REQUETE_PREFERENCES = 1;
     private Button btn_tmp_baie;
+    private Button btn_usage_proc;
+    private Button btn_usage_hdd;
     private Button btn_temp;
     private Button btn_processor;
     private Button btn_disk;
@@ -66,8 +68,11 @@ public class MainActivity extends ActionBarActivity {
         text_disk.setText("Non mesuré ");
 
         this.updateAttributsFromPreferences();
-// Button
+        // Button
         this.btn_tmp_baie = (Button) findViewById(R.id.btn_tmp_baie);
+        this.btn_usage_proc = (Button) findViewById(R.id.btn_usage_proc);
+        this.btn_usage_hdd = (Button) findViewById(R.id.btn_usage_hdd);
+
         this.btn_temp = (Button) findViewById(R.id.btn_temp);
         this.btn_processor = (Button) findViewById(R.id.btn_processor);
         this.btn_disk = (Button) findViewById(R.id.btn_disk);
@@ -123,6 +128,21 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, StatsTEMPActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        this.btn_usage_proc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, StatsMPActivity.class);
+                startActivity(intent);
+            }
+        });
+        this.btn_usage_hdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, StatsDDActivity.class);
                 startActivity(intent);
             }
         });
