@@ -52,7 +52,7 @@ public class StatsMPActivity extends MainActivity{
         // Liste température
         //  final ArrayList<TEMP> arrayTemp = new ArrayList<>();
         this.listeView = (ListView) this.findViewById(R.id.listTemp);
-        final ArrayAdapter<TEMP> arrayAdapt;
+        final ArrayAdapter<UsageMP> arrayAdapt;
         arrayAdapt = new ArrayUsageMPAdapter(this, 0, arrayMp);
         this.listeView.setAdapter(arrayAdapt);
 
