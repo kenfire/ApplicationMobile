@@ -40,7 +40,7 @@ public class StatsMPActivity extends MainActivity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stats_temp);
+        setContentView(R.layout.activity_stats_mp);
         this.updateAttributsFromPreferences();
 
 
@@ -51,7 +51,7 @@ public class StatsMPActivity extends MainActivity{
         }
         // Liste température
         //  final ArrayList<TEMP> arrayTemp = new ArrayList<>();
-        this.listeView = (ListView) this.findViewById(R.id.listTemp);
+        this.listeView = (ListView) this.findViewById(R.id.listMp);
         final ArrayAdapter<UsageMP> arrayAdapt;
         arrayAdapt = new ArrayUsageMPAdapter(this, 0, arrayMp);
         this.listeView.setAdapter(arrayAdapt);
