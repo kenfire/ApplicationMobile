@@ -28,7 +28,7 @@ public class ArrayUsageDDAdapter extends ArrayAdapter<UsageDD> {
 
         if (v == null) {
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inflater.inflate(R.layout.item_perso, null);
+            v = inflater.inflate(R.layout.result_hdd, null);
         }
 
         UsageDD fcourant = objets.get(position);
@@ -41,7 +41,7 @@ public class ArrayUsageDDAdapter extends ArrayAdapter<UsageDD> {
                 tv_sdate.setText(fcourant.sdate);
             }
             if (tv_usage != null){
-                tv_usage.setText(fcourant.usage+"°C");
+                tv_usage.setText(fcourant.usage);
             }
             if (tv_capacite != null){
                 tv_capacite.setText(fcourant.capacite);
