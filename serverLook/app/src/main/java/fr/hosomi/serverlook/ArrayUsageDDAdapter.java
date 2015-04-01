@@ -37,7 +37,6 @@ public class ArrayUsageDDAdapter extends ArrayAdapter<UsageDD> {
             TextView tv_usage = (TextView) v.findViewById(R.id.usage);
             TextView tv_capacite = (TextView) v.findViewById(R.id.capacite);
             TextView tv_utilisation = (TextView) v.findViewById(R.id.utilisation);
-            ImageView icone = (ImageView) v.findViewById(R.id.thermo);
             if (tv_sdate != null){
                 tv_sdate.setText(fcourant.sdate);
             }
@@ -49,9 +48,6 @@ public class ArrayUsageDDAdapter extends ArrayAdapter<UsageDD> {
             }
             if (tv_utilisation != null){
                 tv_utilisation.setText(fcourant.utilisation);
-            }
-            if (icone != null){
-                icone.setImageResource(R.drawable.thermo);
             }
         }
         return v;

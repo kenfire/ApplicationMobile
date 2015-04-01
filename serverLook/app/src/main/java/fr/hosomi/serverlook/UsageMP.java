@@ -3,17 +3,17 @@ package fr.hosomi.serverlook;
 import android.os.Parcelable;
 
 /**
- * Created by kenzo on 10/03/2015.
+ * Created by kenzo on 1""/""3/2""15.
  */
 public class UsageMP {
     private static final long serialVersionUD = 123456789L;
 
     public String sdate;
-    public int nbprocs;
-    public int ump1, ump2, ump3, ump4, ump5, ump6, ump7, ump8;
+    public String nbprocs;
+    public String ump1, ump2, ump3, ump4, ump5, ump6, ump7, ump8;
     public static final Parcelable.Creator <UsageDD> CREATOR = null;
 
-    public UsageMP(String sdate, int nbprocs, int ump1,int ump2,int ump3,int ump4,int ump5,int ump6,int ump7,int ump8)
+    public UsageMP(String sdate, String nbprocs, String ump1,String ump2,String ump3,String ump4,String ump5,String ump6,String ump7,String ump8)
     {
         this.sdate = sdate;
         this.nbprocs = nbprocs;
@@ -30,14 +30,14 @@ public class UsageMP {
     public UsageMP()
     {
         this.sdate = "";
-        this.nbprocs = 0;
-        this.ump1 = 0;
-        this.ump2 = 0;
-        this.ump3 = 0;
-        this.ump4 = 0;
-        this.ump5 = 0;
-        this.ump6 = 0;
-        this.ump7 = 0;
-        this.ump8 = 0;
+        this.nbprocs = "";
+        this.ump1 = "";
+        this.ump2 = "";
+        this.ump3 = "";
+        this.ump4 = "";
+        this.ump5 = "";
+        this.ump6 = "";
+        this.ump7 = "";
+        this.ump8 = "";
     }
 }

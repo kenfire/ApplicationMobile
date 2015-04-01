@@ -81,18 +81,18 @@ public class StatsMPActivity extends MainActivity{
             public void run() {
                 try {
                     arrayMp.clear();
-                    ResultSet result = clientBDD.getTableTEMP(10);
+                    ResultSet result = clientBDD.getTableUsageMP(10);
                     while (result.next()) {
                         String sdate = result.getString("date");
-                        int nbprocs = result.getInt("nbProcs");
-                        int ump1 = result.getInt("usageMP1");
-                        int ump2 = result.getInt("usageMP2");
-                        int ump3 = result.getInt("usageMP3");
-                        int ump4 = result.getInt("usageMP4");
-                        int ump5 = result.getInt("usageMP5");
-                        int ump6 = result.getInt("usageMP6");
-                        int ump7 = result.getInt("usageMP7");
-                        int ump8 = result.getInt("usageMP8");
+                        String nbprocs = result.getString("nbProcs");
+                        String ump1 = result.getString("usageMP1");
+                        String ump2 = result.getString("usageMP2");
+                        String ump3 = result.getString("usageMP3");
+                        String ump4 = result.getString("usageMP4");
+                        String ump5 = result.getString("usageMP5");
+                        String ump6 = result.getString("usageMP6");
+                        String ump7 = result.getString("usageMP7");
+                        String ump8 = result.getString("usageMP8");
 
                         arrayMp.add(new UsageMP(sdate, nbprocs, ump1, ump2, ump3, ump4, ump5, ump6, ump7, ump8));
                     }

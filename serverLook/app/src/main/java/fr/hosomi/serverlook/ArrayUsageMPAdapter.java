@@ -34,20 +34,45 @@ public class ArrayUsageMPAdapter extends ArrayAdapter<UsageMP> {
         UsageMP fcourant = objets.get(position);
         if (fcourant != null) {
             TextView tv_sdate = (TextView) v.findViewById(R.id.sdate);
-            TextView tv_temp = (TextView) v.findViewById(R.id.temp);
-            TextView tv_nomBaie = (TextView) v.findViewById(R.id.nomBaie);
-            ImageView icone = (ImageView) v.findViewById(R.id.thermo);
+            TextView tv_procs = (TextView) v.findViewById(R.id.nbprocs);
+            TextView tv_ump1 = (TextView) v.findViewById(R.id.ump1);
+            TextView tv_ump2 = (TextView) v.findViewById(R.id.ump2);
+            TextView tv_ump3 = (TextView) v.findViewById(R.id.ump3);
+            TextView tv_ump4 = (TextView) v.findViewById(R.id.ump4);
+            TextView tv_ump5 = (TextView) v.findViewById(R.id.ump5);
+            TextView tv_ump6 = (TextView) v.findViewById(R.id.ump6);
+            TextView tv_ump7 = (TextView) v.findViewById(R.id.ump7);
+            TextView tv_ump8 = (TextView) v.findViewById(R.id.ump8);
+
             if (tv_sdate != null){
                 tv_sdate.setText(fcourant.sdate);
             }
-            if (tv_temp != null){
-                tv_temp.setText(fcourant.nbprocs+"°C");
+            if (tv_procs != null){
+                tv_procs.setText(fcourant.nbprocs);
             }
-            if (tv_nomBaie != null){
-                tv_nomBaie.setText(fcourant.ump1);
+            if (tv_ump1 != null){
+                tv_ump1.setText(fcourant.ump1);
             }
-            if (icone != null){
-                icone.setImageResource(R.drawable.thermo);
+            if (tv_ump2 != null){
+                tv_ump2.setText(fcourant.ump2);
+            }
+            if (tv_ump3 != null){
+                tv_ump3.setText(fcourant.ump3);
+            }
+            if (tv_ump4 != null){
+                tv_ump4.setText(fcourant.ump4);
+            }
+            if (tv_ump5 != null){
+                tv_ump5.setText(fcourant.ump5);
+            }
+            if (tv_ump6 != null){
+                tv_ump6.setText(fcourant.ump6);
+            }
+            if (tv_ump7 != null){
+                tv_ump7.setText(fcourant.ump7);
+            }
+            if (tv_ump8 != null){
+                tv_ump8.setText(fcourant.ump8);
             }
         }
         return v;

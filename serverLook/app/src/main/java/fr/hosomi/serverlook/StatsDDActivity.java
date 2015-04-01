@@ -80,7 +80,7 @@ public class StatsDDActivity extends MainActivity {
             public void run() {
                 try {
                     arrayDd.clear();
-                    ResultSet result = clientBDD.getTableTEMP(10);
+                    ResultSet result = clientBDD.getTableUsageDD(10);
                     while (result.next()) {
                         String sdate = result.getString("date");
                         String usage = result.getString("usage");

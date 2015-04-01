@@ -57,23 +57,23 @@ public class ClientSQLmetier {
         return result;
     }
 
-    public ResultSet getTableUsageDD() throws SQLException
+    public ResultSet getTableUsageDD(int top) throws SQLException
     {
         if( conn == null )
             conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
         Log.i(TAG, "open BDD");
         Statement stmt = conn.createStatement();
-        ResultSet result = stmt.executeQuery("select * from UsageDD");
+        ResultSet result = stmt.executeQuery("select top "+top+" * from UsageDD order by date desc");
         return result;
     }
 
-    public ResultSet getTableUsageMP() throws SQLException
+    public ResultSet getTableUsageMP(int top) throws SQLException
     {
         if( conn == null )
             conn = DriverManager.getConnection(this.connexionStringBDD,this.userBDD, this.mdpBDD);
         Log.i(TAG, "open BDD");
         Statement stmt = conn.createStatement();
-        ResultSet result = stmt.executeQuery("select * from UsageMP");
+        ResultSet result = stmt.executeQuery("select top "+top+" * from UsageMP order by date desc");
         return result;
     }
 
