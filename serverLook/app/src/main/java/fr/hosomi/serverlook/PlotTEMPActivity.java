@@ -69,7 +69,7 @@ public class PlotTEMPActivity extends ActionBarActivity{
         }
        temperature_plot.setTitle("Températures du " + startDate + " au " + endDate);
 
-        temperature_plot.setRangeBoundaries(lowestTemp-5, highestTemp+5, BoundaryMode.FIXED);
+        temperature_plot.setRangeBoundaries(lowestTemp-1, highestTemp+1, BoundaryMode.FIXED);
 
         XYSeries data = new SimpleXYSeries(
                 Arrays.asList(time),

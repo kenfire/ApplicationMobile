@@ -16,7 +16,7 @@
         android:id="@+id/temperature_plot"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        androidPlot.title="Températures du 26-09-2014 14:27:54 au 26-09-2014 13:48:53"
+
         androidPlot.domainLabel="Temps relatif"
         androidPlot.rangeLabel="°C"
         androidPlot.titleWidget.labelPaint.textSize="@dimen/title_font_size"
