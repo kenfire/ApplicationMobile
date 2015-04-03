@@ -64,10 +64,9 @@ public class StatsMPActivity extends MainActivity{
         this.btn_courbe_stats.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(StatsMPActivity.this, PlotMPActivity.class);
-                //envois de la liste de température
-//                intent.putExtra(KEY_ARRAY_MP,arrayMp);
-//                startActivity(intent);
+                Intent intent = new Intent(StatsMPActivity.this, PlotMPActivity.class);
+                intent.putExtra(KEY_ARRAY_MP,arrayMp);
+                startActivity(intent);
             }
         });
         final ProgressDialog wait = new ProgressDialog(this);

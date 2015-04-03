@@ -1,11 +1,14 @@
 package fr.hosomi.serverlook;
 
+import android.os.Parcel;
 import android.os.Parcelable;
+
+import java.io.Serializable;
 
 /**
  * Created by kenzo on 1""/""3/2""15.
  */
-public class UsageMP {
+public class UsageMP implements Serializable {
     private static final long serialVersionUD = 123456789L;
 
     public String sdate;
@@ -39,5 +42,17 @@ public class UsageMP {
         this.ump6 = "";
         this.ump7 = "";
         this.ump8 = "";
+    }
+
+    public String toString(){
+        return  this.sdate  + " " + this.nbprocs + " " + this.ump1 + " " + this.ump2 + " " + this.ump3 + " " + this.ump4 + " " + this.ump5 + " " + this.ump6 + " " + this.ump7 + " " + this.ump8;
+    }
+
+    public int describeContents(){
+        return 0;
+    }
+
+    public void writeToParcel(Parcel parcel, int num){
+
     }
 }
