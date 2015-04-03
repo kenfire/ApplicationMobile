@@ -63,7 +63,7 @@ public class StatsDDActivity extends MainActivity {
         this.btnPlotDD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(StatsDDActivity.this, PlotTEMPActivity.class);
+                Intent intent = new Intent(StatsDDActivity.this, PlotDDActivity.class);
                 //envois de la liste de température
                 intent.putExtra(KEY_ARRAY_DD,arrayDd);
                 startActivity(intent);
